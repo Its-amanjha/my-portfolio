@@ -1,12 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
-export function useMouse<T extends HTMLElement = HTMLDivElement>() {
+export function useMouse() {
   const [state, setState] = useState<{ x: number | null; y: number | null }>({
     x: null,
     y: null,
   });
-
-  const ref = useRef<T>(null);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -23,5 +21,5 @@ export function useMouse<T extends HTMLElement = HTMLDivElement>() {
     };
   }, []);
 
-  return [state, ref] as const;
+  return [state] as const;
 }
