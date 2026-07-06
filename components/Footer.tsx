@@ -1,7 +1,16 @@
 'use client';
 
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+
 export default function Footer() {
   const year = new Date().getFullYear();
+
+  const socialLinks = [
+    { icon: <FaGithub size={20} />, href: 'https://github.com/Its-amanjha', label: 'GitHub' },
+    { icon: <FaLinkedin size={20} />, href: 'https://linkedin.com/in/its-amanjha', label: 'LinkedIn' },
+    { icon: <FaEnvelope size={20} />, href: 'https://mail.google.com/mail/?view=cm&fs=1&to=amanjhaa.work@gmail.com', label: 'Email' },
+    { icon: <FaWhatsapp size={20} />, href: 'https://wa.me/919217036208', label: 'WhatsApp' },
+  ];
 
   return (
     <footer style={{
@@ -32,42 +41,34 @@ export default function Footer() {
           </span>
         </div>
 
-        <div className="footer-links" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          {[
-            { label: 'GitHub', href: 'https://github.com/Its-amanjha' },
-            { label: 'LinkedIn', href: 'https://linkedin.com/in/its-amanjha' },
-            { label: 'Email', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=amanjhaa.work@gmail.com' },
-          ].map(({ label, href }) => (
+        <div className="footer-links" style={{ display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
+          {socialLinks.map(({ icon, href, label }) => (
             <a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={label}
               style={{
-                fontFamily: "'IBM Plex Mono', monospace",
-                fontSize: '0.8rem',
-                fontWeight: 600,
                 color: '#aaa',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 textDecoration: 'none',
-                borderBottom: '1.5px solid transparent',
-                transition: 'color 0.2s ease, border-color 0.2s ease',
+                transition: 'color 0.2s ease, transform 0.2s ease',
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.color = '#FFE135';
-                (e.currentTarget as HTMLElement).style.borderBottomColor = '#FFE135';
+                (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.color = '#aaa';
-                (e.currentTarget as HTMLElement).style.borderBottomColor = 'transparent';
+                (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
               }}
             >
-              {label}
+              {icon}
             </a>
           ))}
-        </div>
-
-        <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: '0.72rem', color: '#666' }}>
-          Built with Next.js + Neobrutalism ✦
         </div>
       </div>
     </footer>
