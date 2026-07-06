@@ -6,7 +6,7 @@ import { SiGithub, SiX } from 'react-icons/si';
 import { FaLinkedin } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
-const roles = ['AI Engineer', 'Full-Stack Developer', 'ML Systems Builder', 'Automation Architect'];
+const roles = ['AI Engineer', 'Agentic Driven Systems', 'ML Systems Builder', 'Automation Architect'];
 
 function CustomTypewriter({ words, typeSpeed = 70, deleteSpeed = 50, delaySpeed = 2000 }: { words: string[], typeSpeed?: number, deleteSpeed?: number, delaySpeed?: number }) {
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
