@@ -1,6 +1,6 @@
-# Aman Kumar Jha — Neobrutalism Portfolio
+# Aman kumar Jha | Portfolio
 
-A modern, high-contrast neobrutalist developer portfolio built with Next.js, TypeScript, Framer Motion, and Tailwind CSS. Integrated with a serverless guestbook and dynamic tech writings.
+A modern, high-contrast neobrutalist developer portfolio built with Next.js, TypeScript, Framer Motion, and Tailwind CSS. Integrated with a serverless guestbook, dynamic tech writings, and custom asset layouts.
 
 ---
 
@@ -19,17 +19,18 @@ I leverage autonomous coding agents to accelerate development and rapid experime
 - **Database**: Neon (PostgreSQL Serverless)
 - **Animations**: Framer Motion
 - **Type Safety**: TypeScript
-- **Deployment**: Vercel ready
+- **Favicon**: Custom Star38 SVG favicon
 
 ---
 
 ## 🌟 Key Features
 
 1. **Neobrutalist Design System**: Standard borders (`3px solid #1a1a1a`) and solid flat shadows (`5px 5px 0px #1a1a1a`) giving a tactile, physical feel to cards and interactive items.
-2. **Dynamic Blogs route**: Static site generated (SSG) pre-rendered articles under `/blogs/[slug]` featuring inline code snippets and clean typographic layouts.
+2. **Dynamic Blogs Route**: Static site generated (SSG) pre-rendered articles under `/blogs/[slug]` featuring inline code snippets and clean typographic layouts.
 3. **Live Guestbook**: Real-time message board using Next.js Server Actions connecting to a serverless Postgres database with automatic client-side polling.
 4. **Scattered Social Cards**: Interactive, physics-inspired scattered cards on desktop and mobile that hover, tilt, and animate on touch.
 5. **Custom Cursor**: Custom canvas mouse tracker with context-aware icon changes when hovering over links and buttons.
+6. **Multi-Channel Social Footer**: Optimized, centered social icon row containing direct links for GitHub, LinkedIn, Email (Gmail web compose redirect), X (Twitter), and WhatsApp.
 
 ---
 
