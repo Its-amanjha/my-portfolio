@@ -1,6 +1,7 @@
 'use client';
 
 import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { SiX } from 'react-icons/si';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -10,6 +11,7 @@ export default function Footer() {
     { icon: <FaLinkedin size={20} />, href: 'https://linkedin.com/in/its-amanjha', label: 'LinkedIn' },
     { icon: <FaEnvelope size={20} />, href: 'https://mail.google.com/mail/?view=cm&fs=1&to=amanjhaa.work@gmail.com', label: 'Email' },
     { icon: <FaWhatsapp size={20} />, href: 'https://wa.me/919217036208', label: 'WhatsApp' },
+    { icon: <SiX size={17} />, href: '#', label: 'X (Twitter)' },
   ];
 
   return (
@@ -24,9 +26,10 @@ export default function Footer() {
         justifyContent: 'space-between',
         alignItems: 'center',
         flexWrap: 'wrap',
-        gap: '1rem',
+        gap: '1.5rem',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+        {/* Left Column: Brand Info */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', flex: '1 1 200px' }}>
           <div style={{
             fontFamily: "'Bebas Neue', sans-serif",
             fontSize: '1.4rem',
@@ -41,7 +44,14 @@ export default function Footer() {
           </span>
         </div>
 
-        <div className="footer-links" style={{ display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
+        {/* Center Column: Social Icons */}
+        <div className="footer-links" style={{
+          display: 'flex',
+          gap: '1.5rem',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flex: '1 1 200px',
+        }}>
           {socialLinks.map(({ icon, href, label }) => (
             <a
               key={label}
@@ -70,6 +80,9 @@ export default function Footer() {
             </a>
           ))}
         </div>
+
+        {/* Right Column: Spacer to prevent overlap with floating ScrollToTop button */}
+        <div className="footer-spacer" style={{ flex: '1 1 200px' }}></div>
       </div>
     </footer>
   );
