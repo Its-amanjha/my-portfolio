@@ -1,0 +1,290 @@
+<style>
+  .preview-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #1a1a1a;
+    padding-bottom: 1rem;
+  }
+  .preview-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 2.5px solid #1a1a1a;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background: #fff;
+    box-shadow: 3px 3px 0 #1a1a1a;
+    transition: all 0.1s ease;
+  }
+  .preview-tab.active {
+    background: #FFE135;
+    box-shadow: none;
+    transform: translate(3px, 3px);
+  }
+  .mockup-container {
+    border: 3px solid #1a1a1a;
+    background: #faf7f0;
+    padding: 2rem;
+    min-height: 400px;
+    box-shadow: 6px 6px 0 #1a1a1a;
+    margin-bottom: 2rem;
+    position: relative;
+    border-radius: 4px;
+  }
+  
+  /* Option A: Terminal styles */
+  .term-window {
+    background: #1a1a1a;
+    border: 3px solid #1a1a1a;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'IBM Plex Mono', monospace;
+    overflow: hidden;
+    box-shadow: 5px 5px 0 #1a1a1a;
+  }
+  .term-header {
+    background: #333;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 2.5px solid #1a1a1a;
+  }
+  .term-dots {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .term-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .term-tabs {
+    display: flex;
+    margin-left: 1.5rem;
+    gap: 4px;
+  }
+  .term-tab {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.72rem;
+    background: #222;
+    color: #888;
+    border: 2px solid #1a1a1a;
+    border-bottom: none;
+    cursor: pointer;
+    border-radius: 3px 3px 0 0;
+  }
+  .term-tab.active {
+    background: #1a1a1a;
+    color: #FFE135;
+    font-weight: bold;
+    border-color: #1a1a1a;
+  }
+  .term-body {
+    padding: 1.5rem;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Option B: Bento styles */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    gap: 1.25rem;
+  }
+  .bento-card {
+    background: #fff;
+    border: 3px solid #1a1a1a;
+    padding: 1.5rem;
+    box-shadow: 4px 4px 0 #1a1a1a;
+    border-radius: 4px;
+  }
+  
+  /* Option C: Editorial styles */
+  .edit-layout {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .edit-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    border-bottom: 4px solid #1a1a1a;
+    padding-bottom: 0.5rem;
+  }
+  .edit-cols {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+  }
+</style>
+
+<h2>Interactive Visual Mockups</h2>
+<p class="subtitle">Click the tabs below to preview how each redesigned About section will actually look in your browser.</p>
+
+<div class="preview-tabs">
+  <button class="preview-tab active" onclick="switchPreview('terminal', this)">A. Terminal Workspace</button>
+  <button class="preview-tab" onclick="switchPreview('bento', this)">B. Bento Grid</button>
+  <button class="preview-tab" onclick="switchPreview('editorial', this)">C. Typography Editorial</button>
+</div>
+
+<div class="mockup-container">
+  
+  <!-- Terminal Preview -->
+  <div id="prev-terminal" class="preview-content">
+    <div class="term-window">
+      <div class="term-header">
+        <div class="term-dots">
+          <span class="term-dot" style="background:#FF6B9D"></span>
+          <span class="term-dot" style="background:#4ECDC4"></span>
+          <span class="term-dot" style="background:#FFE135"></span>
+        </div>
+        <div class="term-tabs">
+          <span class="term-tab active" onclick="switchTermTab('profile', this)">profile.sh</span>
+          <span class="term-tab" onclick="switchTermTab('stack', this)">capabilities.json</span>
+          <span class="term-tab" onclick="switchTermTab('logs', this)">sys_logs.log</span>
+        </div>
+      </div>
+      <div class="term-body">
+        <div id="term-tab-profile">
+          <p style="color:#95E06C; margin-bottom: 0.8rem; font-size: 0.8rem;">&gt; cat profile.md</p>
+          <p style="line-height: 1.7; font-size: 0.88rem; font-family: 'Space Grotesk', sans-serif;">Designing and deploying autonomous AI agents that reason, code, and self-correct using multi-step LLM loops. Building systems where software writes, tests, and ships itself.</p>
+          <div style="margin-top: 1.5rem; display: flex; gap: 1.5rem; font-size: 0.8rem; color: #aaa;">
+            <div>🎓 Education: Your University</div>
+            <div>📍 Location: India</div>
+          </div>
+        </div>
+        <div id="term-tab-stack" style="display:none;">
+          <p style="color:#4ECDC4; margin-bottom: 0.8rem; font-size: 0.8rem;">&gt; cat capabilities.json</p>
+          <pre style="font-size: 0.8rem; color: #fff; margin: 0; font-family: 'IBM Plex Mono', monospace;">{
+  "focus": "Agentic AI & Systems Builder",
+  "frontend": ["React", "Next.js", "Tailwind"],
+  "backend": ["Python", "FastAPI", "Go", "PostgreSQL"],
+  "workflows": ["LangChain", "LLM Orchestration"]
+}</pre>
+        </div>
+        <div id="term-tab-logs" style="display:none;">
+          <p style="color:#FFE135; margin-bottom: 0.8rem; font-size: 0.8rem;">&gt; tail -n 5 sys_logs.log</p>
+          <div style="font-size: 0.78rem; color: #aaa; line-height: 1.6; font-family: 'IBM Plex Mono', monospace;">
+            [2026-07-05 14:02:11] AI_AGENT_ENGINE.sys initializing...<br/>
+            [2026-07-05 14:02:12] ✓ Neon DB Pool Connected<br/>
+            [2026-07-05 14:02:13] Running self-corrective coding loop...<br/>
+            [2026-07-05 14:02:15] All tests passed (100% success)<br/>
+            <span style="color:#95E06C">● SYSTEM_STATUS: ONLINE // STANDBY</span>
+          </div>
+        </div>
+        
+        <div style="margin-top: 2rem; border-top: 1px dashed #444; padding-top: 0.8rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #666;">
+          <span>SYS_STATUS // ONLINE</span>
+          <a href="#" onclick="return false;" style="background:#FFE135; color:#1a1a1a; border:2px solid #1a1a1a; padding: 0.3rem 0.8rem; text-decoration:none; font-weight:bold; box-shadow: 2px 2px 0 #000;">DOWNLOAD_CV.exe</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bento Grid Preview -->
+  <div id="prev-bento" class="preview-content" style="display:none;">
+    <div class="bento-grid">
+      <div class="bento-card" style="grid-column: span 1; border-left: 6px solid #FFE135;">
+        <h4 style="font-family:'Bebas Neue', sans-serif; font-size: 1.8rem; margin-bottom: 0.75rem; letter-spacing: 0.05em;">Who Am I</h4>
+        <p style="font-size: 0.88rem; line-height: 1.7; color: #1a1a1a; font-family: 'Space Grotesk', sans-serif;">Designing and deploying autonomous AI agents that reason, code, and self-correct using multi-step LLM loops. Building systems where software writes, tests, and ships itself.</p>
+      </div>
+      <div class="bento-card" style="display:flex; flex-direction:column; gap: 1rem; justify-content: center;">
+        <div>
+          <div style="font-size:0.7rem; color:#777; font-family: 'IBM Plex Mono', monospace; font-weight: bold;">🎓 EDUCATION</div>
+          <div style="font-weight:700; font-size:0.95rem; font-family: 'Space Grotesk', sans-serif; margin-top: 0.2rem;">Your University</div>
+        </div>
+        <div>
+          <div style="font-size:0.7rem; color:#777; font-family: 'IBM Plex Mono', monospace; font-weight: bold;">📍 LOCATION</div>
+          <div style="font-weight:700; font-size:0.95rem; font-family: 'Space Grotesk', sans-serif; margin-top: 0.2rem;">India</div>
+        </div>
+      </div>
+      <div class="bento-card" style="grid-column: span 2; display: flex; justify-content: space-between; align-items: center; background: #1a1a1a; color: #fff;">
+        <span style="font-family:'IBM Plex Mono', monospace; font-size: 0.75rem; letter-spacing: 0.05em;">SYS: ACTIVE_FOR_OPPORTUNITIES</span>
+        <a href="#" onclick="return false;" style="background:#FFE135; color:#1a1a1a; border:2px solid #1a1a1a; padding: 0.4rem 1rem; text-decoration:none; font-size: 0.8rem; font-weight: bold; box-shadow: 2px 2px 0 #fff; font-family: 'Space Grotesk', sans-serif;">📄 Download CV</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editorial Preview -->
+  <div id="prev-editorial" class="preview-content" style="display:none;">
+    <div class="edit-layout">
+      <h3 class="edit-title">WHO AM I?</h3>
+      <div class="edit-cols">
+        <div>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #1a1a1a; text-align: justify; font-family: 'Space Grotesk', sans-serif;">
+            Designing and deploying autonomous AI agents that reason, code, and self-correct using multi-step LLM loops. Building systems where software writes, tests, and ships itself.
+          </p>
+        </div>
+        <div style="border-left: 3px solid #1a1a1a; padding-left: 2rem; display: flex; flex-direction: column; gap: 1.25rem;">
+          <div>
+            <div style="font-family:'IBM Plex Mono', monospace; font-size: 0.72rem; text-transform: uppercase; color: #666; font-weight: bold;">🎓 Education</div>
+            <div style="font-weight: 700; font-size: 1.1rem; margin-top: 0.2rem;">Your University</div>
+          </div>
+          <div>
+            <div style="font-family:'IBM Plex Mono', monospace; font-size: 0.72rem; text-transform: uppercase; color: #666; font-weight: bold;">📍 Location</div>
+            <div style="font-weight: 700; font-size: 1.1rem; margin-top: 0.2rem;">India</div>
+          </div>
+          <a href="#" onclick="return false;" style="font-family:'IBM Plex Mono', monospace; font-weight: 700; font-size: 0.88rem; color: #1a1a1a; text-decoration: underline; margin-top: 0.5rem; display: block;">
+            → View Curriculum Vitae (CV)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<h3>Choose your preferred layout option:</h3>
+<div class="options" data-choice-trigger>
+  <div class="option" data-choice="terminal" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Select Option A (Terminal Workspace)</h3>
+      <p>I want to go with the interactive retro-terminal tabs.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="bento" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Select Option B (Bento Grid)</h3>
+      <p>I want to go with the neobrutalist grid cards.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="editorial" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Select Option C (Typography Editorial)</h3>
+      <p>I want to go with the print-style typographic columns.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function switchPreview(type, btn) {
+    // Update active tab button
+    document.querySelectorAll('.preview-tabs .preview-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Update visible preview mockup
+    document.querySelectorAll('.preview-content').forEach(c => c.style.display = 'none');
+    document.getElementById('prev-' + type).style.display = 'block';
+  }
+
+  function switchTermTab(tab, tabBtn) {
+    // Terminal internal tabs
+    document.querySelectorAll('.term-tabs .term-tab').forEach(t => {
+      t.classList.remove('active');
+    });
+    tabBtn.classList.add('active');
+    
+    document.getElementById('term-tab-profile').style.display = tab === 'profile' ? 'block' : 'none';
+    document.getElementById('term-tab-stack').style.display = tab === 'stack' ? 'block' : 'none';
+    document.getElementById('term-tab-logs').style.display = tab === 'logs' ? 'block' : 'none';
+  }
+</script>

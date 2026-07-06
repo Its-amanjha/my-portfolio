@@ -1,0 +1,246 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+  body {
+    font-family: 'Space Grotesk', sans-serif !important;
+    background-color: #f5f0e8 !important;
+    color: #1a1a1a !important;
+    padding: 2.5rem !important;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #555;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+    margin-bottom: 2.5rem;
+    margin-top: 0;
+  }
+
+  /* App Neobrutalist Cards */
+  .about-card {
+    background: #ffffff;
+    border: 3px solid #1a1a1a;
+    box-shadow: 5px 5px 0px #1a1a1a;
+    border-radius: 4px;
+    padding: 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Bento Grid */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 1.75rem;
+  }
+
+  .right-column-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: #777;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+  }
+
+  .card-value {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1a1a1a;
+  }
+
+  /* Weather card specific styling */
+  .weather-temp {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1;
+    margin-top: 0.25rem;
+  }
+
+  .weather-condition {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #555;
+    margin-top: 0.25rem;
+  }
+
+  /* Sonar radar pulse animation */
+  @keyframes radar-pulse {
+    0% {
+      transform: scale(0.95);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+
+  .radar-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #4ECDC4;
+    animation: radar-pulse 2s infinite ease-out;
+  }
+
+  /* CV Button - styled exactly like the app's dark button */
+  .cv-btn-black {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: 3px solid #1a1a1a;
+    box-shadow: 4px 4px 0px #1a1a1a;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 1.75rem;
+  }
+
+  .cv-btn-black:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #1a1a1a;
+  }
+</style>
+
+<div class="section-label">[ 01 — ABOUT ]</div>
+<h2 class="section-title">WHO AM I?</h2>
+
+<!-- Bento Layout -->
+<div class="bento-grid">
+  
+  <!-- Left Box: Large Single About Card -->
+  <div class="about-card" style="border-left: 6px solid #FFE135; min-height: 320px;">
+    <div>
+      <div class="card-label">OVERVIEW</div>
+      <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; margin-top: 0.25rem;">AI Engineer & Systems Builder</h3>
+      <p style="font-size: 0.98rem; line-height: 1.8; color: #333; text-align: justify; margin: 0; margin-bottom: 1.25rem;">
+        Designing and deploying autonomous AI agents that reason, code, and self-correct using multi-step LLM loops. Building systems where software writes, tests, and ships itself.
+      </p>
+      <p style="font-size: 0.98rem; line-height: 1.8; color: #333; text-align: justify; margin: 0;">
+        Building full-stack applications with React, Next.js, and Node.js on the frontend, and Python, Go, and PostgreSQL on the backend. Clean architecture, fast APIs, and scalable systems.
+      </p>
+    </div>
+    
+    <div>
+      <a href="#" onclick="return false;" class="cv-btn-black">
+        <svg width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 2.5C3 2.22386 3.22386 2 3.5 2H11.5C11.7761 2 12 2.22386 12 2.5V12.5C12 12.7761 11.7761 13 11.5 13H3.5C3.22386 13 3 12.7761 3 12.5V2.5ZM4.5 5C4.22386 5 4 5.22386 4 5.5C4 5.77614 4.22386 6 4.5 6H10.5C10.7761 6 11 5.77614 11 5.5C11 5.22386 10.7761 5 10.5 5H4.5ZM4.5 7.5C4.22386 7.5 4 7.72386 4 8C4 8.27614 4.22386 8.5 4.5 8.5H10.5C10.7761 8.5 11 8.27614 11 8C11 7.72386 10.7761 7.5 10.5 7.5H4.5ZM4.5 10C4.22386 10 4 10.2239 4 10.5C4 10.7761 4.22386 11 4.5 11H8.5C8.77614 11 8.99998 10.7761 8.99998 10.5C8.99998 10.2239 8.77614 10 8.5 10H4.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        <span>CV</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Right Column Stack: Location & Live Weather -->
+  <div class="right-column-stack">
+    
+    <!-- Location Card (With Radar Sonar Pulse Animation) -->
+    <div class="about-card" style="flex: 1; min-height: 140px; border-left: 6px solid #4ECDC4; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 1rem;">
+      <div>
+        <div class="card-label">LOCATION</div>
+        <div class="card-value" style="font-size: 1.35rem; margin-top: 0.25rem;">New Delhi, India</div>
+        <div style="font-size: 0.78rem; font-family: 'IBM Plex Mono', monospace; color: #666; margin-top: 0.5rem;">Current base of operations</div>
+      </div>
+      
+      <!-- Sonar Radar Element -->
+      <div style="position: relative; width: 38px; height: 38px; border-radius: 50%; border: 3px solid #1a1a1a; display: flex; align-items: center; justify-content: center; background: #4ECDC4; box-shadow: 2px 2px 0 #1a1a1a; flex-shrink: 0; margin-right: 0.5rem;">
+        <div class="radar-ring"></div>
+        <div style="width: 10px; height: 10px; border-radius: 50%; background: #1a1a1a;"></div>
+      </div>
+    </div>
+
+    <!-- Live Weather Card -->
+    <div class="about-card" style="flex: 1; min-height: 140px; border-left: 6px solid #FF6B9D;">
+      <div>
+        <div class="card-label">CURRENT WEATHER</div>
+        <div id="weather-loader" style="font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:#888;">Fetching live weather...</div>
+        <div id="weather-info" style="display:none;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div class="weather-temp" id="temp-display">--°C</div>
+            <div id="weather-icon" style="font-size:2.2rem;">☀️</div>
+          </div>
+          <div class="weather-condition" id="cond-display">Sunny</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  // Real-time weather fetch for New Delhi
+  async function fetchDelhiWeather() {
+    try {
+      const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=28.6139&longitude=77.2090&current_weather=true');
+      const data = await res.json();
+      const current = data.current_weather;
+      
+      const temp = Math.round(current.temperature);
+      const code = current.weathercode;
+      
+      let condition = "Clear";
+      let icon = "☀️";
+      
+      if (code === 0) { condition = "Clear Sky"; icon = "☀️"; }
+      else if (code >= 1 && code <= 3) { condition = "Partly Cloudy"; icon = "⛅"; }
+      else if (code >= 45 && code <= 48) { condition = "Foggy"; icon = "🌫️"; }
+      else if (code >= 51 && code <= 67) { condition = "Rainy"; icon = "🌧️"; }
+      else if (code >= 71 && code <= 77) { condition = "Snowy"; icon = "❄️"; }
+      else if (code >= 80 && code <= 82) { condition = "Rain Showers"; icon = "🌦️"; }
+      else if (code >= 95 && code <= 99) { condition = "Thunderstorm"; icon = "⛈️"; }
+      
+      document.getElementById('temp-display').innerText = temp + '°C';
+      document.getElementById('cond-display').innerText = condition;
+      document.getElementById('weather-icon').innerText = icon;
+      
+      document.getElementById('weather-loader').style.display = 'none';
+      document.getElementById('weather-info').style.display = 'block';
+    } catch (e) {
+      document.getElementById('weather-loader').innerText = 'Weather service offline';
+    }
+  }
+
+  fetchDelhiWeather();
+</script>
+
+<div class="selection-box" style="margin-top: 3.5rem; border-top: 3px solid #1a1a1a; padding-top: 2rem;">
+  <h3>Confirm this final Bento weather layout?</h3>
+  
+  <div class="options" data-choice-trigger>
+    <div class="option" data-choice="apply-v11" onclick="toggleSelect(this)">
+      <div class="letter">A</div>
+      <div class="content">
+        <h3>Yes, build this design</h3>
+        <p>This layout creates a large About card (left), a Location card with a clean pulsing radar ping animation and no coordinates (right-top), and a live New Delhi weather card (right-bottom).</p>
+      </div>
+    </div>
+  </div>
+</div>

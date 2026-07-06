@@ -1,0 +1,378 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+  /* Force standard design system styling inside visual companion */
+  body {
+    font-family: 'Space Grotesk', sans-serif !important;
+    background-color: #f5f0e8 !important;
+    color: #1a1a1a !important;
+  }
+
+  .preview-section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 0.05em;
+    border-bottom: 3px solid #1a1a1a;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .design-selector-tabs {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    border-bottom: 4px solid #1a1a1a;
+    padding-bottom: 1.25rem;
+  }
+
+  .design-selector-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 3px solid #1a1a1a;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    background: #fff;
+    box-shadow: 4px 4px 0 #1a1a1a;
+    transition: all 0.15s ease;
+  }
+
+  .design-selector-tab.active {
+    background: #FFE135;
+    box-shadow: none;
+    transform: translate(4px, 4px);
+  }
+
+  /* Shared Neobrutalist classes */
+  .neo-box {
+    background: #ffffff;
+    border: 3px solid #1a1a1a;
+    box-shadow: 5px 5px 0px #1a1a1a;
+    border-radius: 4px;
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  .neo-box-dark {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: 3px solid #1a1a1a;
+    box-shadow: 5px 5px 0px #1a1a1a;
+    border-radius: 4px;
+    padding: 1.5rem;
+    position: relative;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .badge-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid #1a1a1a;
+    padding: 3px 8px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  /* Option 1: Bento Blueprint Grid */
+  .blueprint-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
+
+  .blueprint-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px dashed #1a1a1a;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .blueprint-header-dark {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px dashed #444;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+
+  .grid-pattern-dark {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+
+  /* Option 2: Code Spec Split */
+  .codespec-split {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .code-editor {
+    background: #111111;
+    color: #f8f8f2;
+    border: 3px solid #1a1a1a;
+    border-radius: 4px;
+    box-shadow: 5px 5px 0 #1a1a1a;
+    overflow: hidden;
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editor-header {
+    background: #1e1e1e;
+    padding: 0.6rem 1rem;
+    border-bottom: 2px solid #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .editor-tabs {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .editor-tab {
+    padding: 0.2rem 0.6rem;
+    background: #2d2d2d;
+    border-radius: 3px 3px 0 0;
+    color: #aaa;
+    font-size: 0.72rem;
+    border: 1px solid #333;
+    border-bottom: none;
+  }
+
+  .editor-tab.active {
+    background: #111111;
+    color: #FFE135;
+    border-color: #1a1a1a;
+  }
+
+  .editor-body {
+    padding: 1.25rem;
+    flex: 1;
+    line-height: 1.5;
+  }
+
+  .line-num {
+    color: #444;
+    margin-right: 1rem;
+    user-select: none;
+  }
+
+  .syntax-keyword { color: #FF6B9D; }
+  .syntax-string { color: #95E06C; }
+  .syntax-var { color: #4ECDC4; }
+  .syntax-comment { color: #666; font-style: italic; }
+
+  .live-preview-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+</style>
+
+<h2>Visual Presentation Redesigns</h2>
+<p class="subtitle">I heard you loud and clear. The previous wireframes were too simple. Here are two fully art-directed, highly technical designs tailored specifically to your neobrutalist developer brand.</p>
+
+<div class="design-selector-tabs">
+  <button class="design-selector-tab active" onclick="switchMainDesign('blueprint', this)">Approach 1: The Blueprint Grid (Bento Grid)</button>
+  <button class="design-selector-tab" onclick="switchMainDesign('codespec', this)">Approach 2: The Interactive Code Spec</button>
+</div>
+
+<div class="mockup-container" style="background:#f5f0e8; padding: 2.5rem; border: 3px solid #1a1a1a; box-shadow: 8px 8px 0 #1a1a1a;">
+  
+  <!-- APPROACH 1: BLUEPRINT GRID -->
+  <div id="design-blueprint" class="design-content-wrapper">
+    <div class="blueprint-grid">
+      
+      <!-- Bio widget -->
+      <div class="neo-box" style="grid-column: span 1; padding: 2rem;">
+        <div class="grid-pattern"></div>
+        <div class="blueprint-header" style="position:relative; z-index:1;">
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:0.75rem; font-weight:700; color:#666;">FILE // BIO_PROFILE.sys</span>
+          </div>
+          <span class="badge-tag" style="background:#FF6B9D; color:#1a1a1a;">Active</span>
+        </div>
+        <div style="position:relative; z-index:1;">
+          <h3 style="font-family:'Bebas Neue', sans-serif; font-size:2.5rem; margin-bottom: 0.75rem; letter-spacing:0.04em;">THE CORE MISSION</h3>
+          <p style="font-size:0.95rem; line-height:1.7; color:#1a1a1a; text-align:justify; font-weight:500;">
+            Designing and deploying autonomous AI agents that reason, code, and self-correct using multi-step LLM loops. Building systems where software writes, tests, and ships itself.
+          </p>
+        </div>
+      </div>
+
+      <!-- Identity Telemetry Widget -->
+      <div class="neo-box" style="background:#FFE135; display:flex; flex-direction:column; justify-content:space-between; padding: 2rem;">
+        <div class="blueprint-header" style="border-bottom-color:#1a1a1a;">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:0.75rem; font-weight:700; color:#1a1a1a;">TELEMETRY</span>
+          <span style="font-size:0.7rem; font-family:'IBM Plex Mono', monospace;">LOC // IN</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div>
+            <div style="font-size:0.68rem; font-family:'IBM Plex Mono', monospace; font-weight:700; opacity:0.65; text-transform:uppercase;">🎓 Education</div>
+            <div style="font-weight:700; font-size:1.15rem; font-family:'Space Grotesk', sans-serif; margin-top:0.25rem; line-height:1.2;">Your University</div>
+          </div>
+          <div>
+            <div style="font-size:0.68rem; font-family:'IBM Plex Mono', monospace; font-weight:700; opacity:0.65; text-transform:uppercase;">📍 Current Base</div>
+            <div style="font-weight:700; font-size:1.15rem; font-family:'Space Grotesk', sans-serif; margin-top:0.25rem; line-height:1.2;">India (GMT+5:30)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- System logs terminal -->
+      <div class="neo-box-dark" style="grid-column: span 1; padding: 1.5rem 2rem;">
+        <div class="grid-pattern-dark"></div>
+        <div class="blueprint-header-dark" style="position:relative; z-index:1;">
+          <span style="font-size:0.75rem; color:#888;">LOGS // AGENT_WATCHDOG</span>
+          <span style="width:8px; height:8px; background:#95E06C; border-radius:50%; display:inline-block;"></span>
+        </div>
+        <div style="position:relative; z-index:1; font-size:0.75rem; line-height:1.6; color:#95E06C; min-height:110px;">
+          <span style="color:#666;">$ ./run_self_tests.sh</span><br/>
+          &gt; Loading codebase context... Done (12,488 lines)<br/>
+          &gt; Running verification build... <span style="color:#FFE135">PENDING</span><br/>
+          &gt; ✓ Compiled successfully in 10.9s<br/>
+          &gt; Verification completed. status: <span style="background:#95E06C; color:#1a1a1a; padding:0 3px; font-weight:bold;">READY</span>
+        </div>
+      </div>
+
+      <!-- CV Download Widget -->
+      <div class="neo-box" style="display:flex; flex-direction:column; justify-content:center; align-items:center; cursor:pointer; background:#fff; transition:all 0.1s;" onmouseover="this.style.transform='translate(-3px, -3px)'; this.style.boxShadow='8px 8px 0 #1a1a1a';" onmouseout="this.style.transform='none'; this.style.boxShadow='5px 5px 0 #1a1a1a';">
+        <div style="font-size:3rem; margin-bottom:0.5rem;">💾</div>
+        <span style="font-family:'Bebas Neue', sans-serif; font-size:1.5rem; letter-spacing:0.05em;">GET_CREDENTIALS.pdf</span>
+        <span style="font-family:'IBM Plex Mono', monospace; font-size:0.65rem; color:#666; margin-top:0.25rem;">FILE_SIZE // 1.2 MB</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- APPROACH 2: INTERACTIVE CODE SPEC -->
+  <div id="design-codespec" class="design-content-wrapper" style="display:none;">
+    <div class="codespec-split">
+      
+      <!-- Code Editor Mockup -->
+      <div class="code-editor">
+        <div class="editor-header">
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <div class="term-dots">
+              <span class="term-dot" style="background:#FF6B9D; width:8px; height:8px;"></span>
+              <span class="term-dot" style="background:#4ECDC4; width:8px; height:8px;"></span>
+              <span class="term-dot" style="background:#FFE135; width:8px; height:8px;"></span>
+            </div>
+            <span style="font-size:0.7rem; color:#777; margin-left:0.5rem;">VS_CODE // workspace</span>
+          </div>
+          <div class="editor-tabs">
+            <span class="editor-tab active">AmanJha.ts</span>
+            <span class="editor-tab">system.log</span>
+          </div>
+        </div>
+        <div class="editor-body">
+          <div><span class="line-num">1</span><span class="syntax-keyword">import</span> { <span class="syntax-var">Engineer</span> } <span class="syntax-keyword">from</span> <span class="syntax-string">'@/core/ai'</span>;</div>
+          <div><span class="line-num">2</span></div>
+          <div><span class="line-num">3</span><span class="syntax-keyword">export const</span> <span class="syntax-var">amanJha</span> = <span class="syntax-keyword">new</span> <span class="syntax-var">Engineer</span>({</div>
+          <div><span class="line-num">4</span><span class="line-num"></span>&nbsp;&nbsp;<span class="syntax-var">name</span>: <span class="syntax-string">'Aman Kumar Jha'</span>,</div>
+          <div><span class="line-num">5</span><span class="line-num"></span>&nbsp;&nbsp;<span class="syntax-var">role</span>: <span class="syntax-string">'AI Engineer & Systems Builder'</span>,</div>
+          <div><span class="line-num">6</span><span class="line-num"></span>&nbsp;&nbsp;<span class="syntax-var">base</span>: <span class="syntax-string">'India'</span>,</div>
+          <div><span class="line-num">7</span><span class="line-num"></span>&nbsp;&nbsp;<span class="syntax-var">degree</span>: <span class="syntax-string">'Your University'</span></div>
+          <div><span class="line-num">8</span>});</div>
+          <div><span class="line-num">9</span></div>
+          <div><span class="line-num">10</span><span class="syntax-comment">// Execute core system pipeline</span></div>
+          <div><span class="line-num">11</span><span class="syntax-var">amanJha</span>.<span class="syntax-var">deploy</span>({</div>
+          <div><span class="line-num">12</span><span class="line-num"></span>&nbsp;&nbsp;<span class="syntax-var">mission</span>: <span class="syntax-string">'autonomous AI systems'</span>,</div>
+          <div><span class="line-num">13</span><span class="line-num"></span>&nbsp;&nbsp;<span class="syntax-var">pipeline</span>: [<span class="syntax-string">'reason'</span>, <span class="syntax-string">'code'</span>, <span class="syntax-string">'self-correct'</span>]</div>
+          <div><span class="line-num">14</span>});</div>
+        </div>
+      </div>
+
+      <!-- Live Preview Render -->
+      <div class="live-preview-box">
+        
+        <!-- Bio Card -->
+        <div class="neo-box" style="padding: 1.5rem; border-left: 6px solid #4ECDC4;">
+          <div style="font-family:'IBM Plex Mono', monospace; font-size:0.62rem; color:#888; margin-bottom:0.5rem; display:flex; justify-content:space-between;">
+            <span>RENDER_PREVIEW</span>
+            <span style="color:#4ECDC4; font-weight:bold;">● LIVE</span>
+          </div>
+          <h4 style="font-family:'Bebas Neue', sans-serif; font-size:1.8rem; letter-spacing:0.04em; margin-bottom:0.5rem;">BIO SUMMARY</h4>
+          <p style="font-size:0.88rem; line-height:1.6; color:#333; text-align:justify; font-family:'Space Grotesk', sans-serif;">
+            Designing and deploying autonomous AI agents that reason, code, and self-correct using multi-step LLM loops. Building systems where software writes, tests, and ships itself.
+          </p>
+        </div>
+
+        <!-- Telemetry Card -->
+        <div class="neo-box" style="background:#C77DFF; color:#1a1a1a; display:grid; grid-template-columns: 1fr 1fr; padding: 1.25rem;">
+          <div>
+            <div style="font-size:0.6rem; font-family:'IBM Plex Mono', monospace; font-weight:700; opacity:0.75;">🎓 EDUCATION</div>
+            <div style="font-weight:700; font-size:0.85rem; margin-top:0.2rem;">Your University</div>
+          </div>
+          <div>
+            <div style="font-size:0.6rem; font-family:'IBM Plex Mono', monospace; font-weight:700; opacity:0.75;">📍 ORIGIN</div>
+            <div style="font-weight:700; font-size:0.85rem; margin-top:0.2rem;">India</div>
+          </div>
+        </div>
+
+        <!-- CV Button -->
+        <a href="#" onclick="return false;" class="neo-box" style="background:#1a1a1a; color:#fff; display:flex; justify-content:space-between; align-items:center; text-decoration:none; padding:1.25rem; font-family:'IBM Plex Mono', monospace; font-size:0.85rem; font-weight:bold; box-shadow: 4px 4px 0 #95E06C;">
+          <span>&gt; cat credentials.pdf</span>
+          <span style="color:#95E06C">Download CV 📄</span>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<h3>Choose your preferred redesign approach:</h3>
+<div class="options" data-choice-trigger>
+  <div class="option" data-choice="blueprint" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Approach 1: The Blueprint Grid (Bento Grid)</h3>
+      <p>I like the asymmetric bento tiles displaying coordinates, bio, live interactive logging box, and floppy disk download.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="codespec" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Approach 2: The Interactive Code Spec</h3>
+      <p>I like the split-screen with the code editor mockup on the left and live-compiled preview blocks on the right.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function switchMainDesign(design, btn) {
+    // Switch tabs
+    document.querySelectorAll('.design-selector-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Switch previews
+    document.querySelectorAll('.design-content-wrapper').forEach(w => w.style.display = 'none');
+    document.getElementById('design-' + design).style.display = 'block';
+  }
+</script>

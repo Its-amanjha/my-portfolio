@@ -1,0 +1,182 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+  body {
+    font-family: 'Space Grotesk', sans-serif !important;
+    background-color: #f5f0e8 !important;
+    color: #1a1a1a !important;
+    padding: 2.5rem !important;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #555;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+    margin-bottom: 2.5rem;
+    margin-top: 0;
+  }
+
+  /* App Neobrutalist Cards */
+  .app-card {
+    background: #ffffff;
+    border: 3px solid #1a1a1a;
+    box-shadow: 5px 5px 0px #1a1a1a;
+    border-radius: 4px;
+    padding: 1.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #1a1a1a;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+    margin-top: -0.25rem;
+  }
+
+  .card-header-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  /* 3-Column Layout */
+  .app-about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    align-items: stretch;
+  }
+
+  .bio-text-body {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #333;
+    text-align: justify;
+    margin: 0;
+  }
+
+  /* Action button row */
+  .action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    border-top: 3px solid #1a1a1a;
+    padding-top: 2rem;
+  }
+
+  .location-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #1a1a1a;
+  }
+
+  .app-btn-yellow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    background: #FFE135;
+    color: #1a1a1a;
+    border: 3px solid #1a1a1a;
+    box-shadow: 4px 4px 0px #1a1a1a;
+    padding: 0.85rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .app-btn-yellow:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #1a1a1a;
+  }
+</style>
+
+<div class="section-label">[ 01 — ABOUT ]</div>
+<h2 class="section-title">WHO AM I?</h2>
+
+<!-- 3-Column Profile Cards -->
+<div class="app-about-grid">
+  
+  <!-- Card 1: AI Engineer -->
+  <div class="app-card" style="border-top: 6px solid #FFE135;">
+    <div class="card-header-bar">
+      <span class="card-header-title">AI Engineer</span>
+      <span style="font-family:'IBM Plex Mono', monospace; font-size:0.75rem; font-weight:700; color:#888;">01</span>
+    </div>
+    <p class="bio-text-body">
+      Designing and deploying autonomous AI agents that reason, code, and self-correct using multi-step LLM loops. Building systems where software writes, tests, and ships itself.
+    </p>
+  </div>
+
+  <!-- Card 2: Full-Stack Dev -->
+  <div class="app-card" style="border-top: 6px solid #4ECDC4;">
+    <div class="card-header-bar">
+      <span class="card-header-title">Full-Stack Dev</span>
+      <span style="font-family:'IBM Plex Mono', monospace; font-size:0.75rem; font-weight:700; color:#888;">02</span>
+    </div>
+    <p class="bio-text-body">
+      Building full-stack applications with React, Next.js, and Node.js on the frontend, and Python, Go, and PostgreSQL on the backend. Clean architecture, fast APIs, and scalable systems.
+    </p>
+  </div>
+
+  <!-- Card 3: Automation -->
+  <div class="app-card" style="border-top: 6px solid #FF6B9D;">
+    <div class="card-header-bar">
+      <span class="card-header-title">Automation</span>
+      <span style="font-family:'IBM Plex Mono', monospace; font-size:0.75rem; font-weight:700; color:#888;">03</span>
+    </div>
+    <p class="bio-text-body">
+      Automating complex business workflows with intelligent pipelines — from document parsing and data extraction to decision engines powered by ML models and LLMs.
+    </p>
+  </div>
+
+</div>
+
+<!-- Simple Clean Footer Row -->
+<div class="action-row">
+  <div class="location-text">
+    Location: India
+  </div>
+  
+  <a href="#" onclick="return false;" class="app-btn-yellow">
+    <span>Download CV</span>
+    <svg width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 2C7.77614 2 8 2.22386 8 2.5V8.29289L10.6464 5.64645C10.8417 5.45118 11.1583 5.45118 11.3536 5.64645C11.5488 5.84171 11.5488 6.15829 11.3536 6.35355L7.85355 9.85355C7.65829 10.0488 7.34171 10.0488 7.14645 9.85355L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L7 8.29289V2.5C7 2.22386 7.22386 2 7.5 2ZM2 11.5C2 11.2239 2.22386 11 2.5 11H12.5C12.7761 11 13 11.2239 13 11.5C13 11.7761 12.7761 12 12.5 12H2.5C2.22386 12 2 11.7761 2 11.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+  </a>
+</div>
+
+<div class="selection-box" style="margin-top: 3rem; border-top: 2px solid #1a1a1a; padding-top: 2rem;">
+  <h3>Confirm this 3-column neobrutalist overview card design?</h3>
+  
+  <div class="options" data-choice-trigger>
+    <div class="option" data-choice="apply-cards" onclick="toggleSelect(this)">
+      <div class="letter">A</div>
+      <div class="content">
+        <h3>Yes, build this design</h3>
+        <p>This lays out your 3 core focuses directly in a beautiful, simple 3-card grid that matches your app's existing visual styling perfectly, without any photo sections, vertical lines, or pseudo-code.</p>
+      </div>
+    </div>
+  </div>
+</div>

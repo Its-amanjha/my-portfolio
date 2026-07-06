@@ -1,0 +1,102 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+  body {
+    font-family: 'Space Grotesk', sans-serif !important;
+    background-color: #f5f0e8 !important;
+    color: #1a1a1a !important;
+    padding: 2.5rem !important;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #555;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+    margin-bottom: 2.5rem;
+    margin-top: 0;
+  }
+
+  /* App Neobrutalist Cards */
+  .about-card {
+    background: #ffffff;
+    border: 3px solid #1a1a1a;
+    box-shadow: 5px 5px 0px #1a1a1a;
+    border-radius: 4px;
+    padding: 2.25rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* CV Button - styled exactly like the app's dark button */
+  .cv-btn-black {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: 3px solid #1a1a1a;
+    box-shadow: 4px 4px 0px #1a1a1a;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.8rem 1.75rem;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .cv-btn-black:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #1a1a1a;
+  }
+</style>
+
+<div class="section-label">[ 01 — ABOUT ]</div>
+<h2 class="section-title">WHO AM I?</h2>
+
+<!-- Single Card containing Bio and CV button directly -->
+<div class="about-card" style="border-left: 6px solid #FFE135;">
+  <div>
+    <p style="font-size: 1.02rem; line-height: 1.85; color: #1a1a1a; text-align: justify; margin: 0; margin-bottom: 1.5rem;">
+      Designing and deploying autonomous AI agents that reason, code, and self-correct using multi-step LLM loops. Building systems where software writes, tests, and ships itself.
+    </p>
+    <p style="font-size: 1.02rem; line-height: 1.85; color: #1a1a1a; text-align: justify; margin: 0; margin-bottom: 1.5rem;">
+      Building full-stack applications with React, Next.js, and Node.js on the frontend, and Python, Go, and PostgreSQL on the backend. Clean architecture, fast APIs, and scalable systems.
+    </p>
+  </div>
+  
+  <a href="#" onclick="return false;" class="cv-btn-black">
+    <svg width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 2.5C3 2.22386 3.22386 2 3.5 2H11.5C11.7761 2 12 2.22386 12 2.5V12.5C12 12.7761 11.7761 13 11.5 13H3.5C3.22386 13 3 12.7761 3 12.5V2.5ZM4.5 5C4.22386 5 4 5.22386 4 5.5C4 5.77614 4.22386 6 4.5 6H10.5C10.7761 6 11 5.77614 11 5.5C11 5.22386 10.7761 5 10.5 5H4.5ZM4.5 7.5C4.22386 7.5 4 7.72386 4 8C4 8.27614 4.22386 8.5 4.5 8.5H10.5C10.7761 8.5 11 8.27614 11 8C11 7.72386 10.7761 7.5 10.5 7.5H4.5ZM4.5 10C4.22386 10 4 10.2239 4 10.5C4 10.7761 4.22386 11 4.5 11H8.5C8.77614 11 8.99998 10.7761 8.99998 10.5C8.99998 10.2239 8.77614 10 8.5 10H4.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+    <span>CV</span>
+  </a>
+</div>
+
+<div class="selection-box" style="margin-top: 3.5rem; border-top: 3px solid #1a1a1a; padding-top: 2rem;">
+  <h3>Confirm this single-box layout with CV inside?</h3>
+  
+  <div class="options" data-choice-trigger>
+    <div class="option" data-choice="apply-v17" onclick="toggleSelect(this)">
+      <div class="letter">A</div>
+      <div class="content">
+        <h3>Yes, build this design</h3>
+        <p>This layout removes weather and location boxes entirely, showing a single large neobrutalist About card containing the bio text with the CV button placed inside it.</p>
+      </div>
+    </div>
+  </div>
+</div>

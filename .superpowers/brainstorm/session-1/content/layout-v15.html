@@ -1,0 +1,254 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+  body {
+    font-family: 'Space Grotesk', sans-serif !important;
+    background-color: #f5f0e8 !important;
+    color: #1a1a1a !important;
+    padding: 2.5rem !important;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #555;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+    margin-bottom: 2.5rem;
+    margin-top: 0;
+  }
+
+  /* App Neobrutalist Cards */
+  .about-card {
+    background: #ffffff;
+    border: 3px solid #1a1a1a;
+    box-shadow: 5px 5px 0px #1a1a1a;
+    border-radius: 4px;
+    padding: 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: #777;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+  }
+
+  .card-value {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #1a1a1a;
+  }
+
+  /* Bottom 3-column row */
+  .bottom-row-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    margin-top: 1.75rem;
+  }
+
+  /* Weather styling inside unified card */
+  .weather-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.4rem;
+  }
+
+  .weather-temp {
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1;
+  }
+
+  .weather-condition {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #555;
+  }
+
+  /* Pulse Dot Animation matching your app's existing status dots */
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(149, 224, 108, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 6px rgba(149, 224, 108, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(149, 224, 108, 0);
+    }
+  }
+
+  .app-pulse-dot {
+    width: 7px;
+    height: 7px;
+    background: #95E06C;
+    border: 2.5px solid #1a1a1a;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+
+  /* CV Button - styled exactly like the app's dark button */
+  .cv-btn-black {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: 3px solid #1a1a1a;
+    box-shadow: 5px 5px 0px #1a1a1a;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .cv-btn-black:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0px #1a1a1a;
+  }
+</style>
+
+<div class="section-label">[ 01 — ABOUT ]</div>
+<h2 class="section-title">WHO AM I?</h2>
+
+<!-- Heading OUTSIDE of the box -->
+<div style="margin-bottom: 1.25rem;">
+  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">
+    OVERVIEW
+  </div>
+  <h3 style="font-size: 1.6rem; font-weight: 700; margin: 0; color: #1a1a1a; letter-spacing: -0.01em;">
+    AI Engineer & Systems Builder
+  </h3>
+</div>
+
+<!-- Top Row: Big Single About Card containing only the bio text -->
+<div class="about-card" style="border-left: 6px solid #FFE135; min-height: 180px; padding: 2rem;">
+  <div>
+    <p style="font-size: 0.98rem; line-height: 1.8; color: #333; text-align: justify; margin: 0; margin-bottom: 1.25rem;">
+      Designing and deploying autonomous AI agents that reason, code, and self-correct using multi-step LLM loops. Building systems where software writes, tests, and ships itself.
+    </p>
+    <p style="font-size: 0.98rem; line-height: 1.8; color: #333; text-align: justify; margin: 0;">
+      Building full-stack applications with React, Next.js, and Node.js on the frontend, and Python, Go, and PostgreSQL on the backend. Clean architecture, fast APIs, and scalable systems.
+    </p>
+  </div>
+</div>
+
+<!-- Bottom Row: 3-column Bento layout -->
+<div class="bottom-row-3col">
+  
+  <!-- Box 1: Location & Weather combined -->
+  <div class="about-card" style="border-left: 6px solid #4ECDC4; min-height: 140px; padding: 1.25rem 1.5rem; justify-content: space-between;">
+    <div>
+      <div class="card-label">LOCATION & WEATHER</div>
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.15rem;">
+        <span class="card-value" style="font-size:1.1rem;">New Delhi, India</span>
+        <span class="app-pulse-dot"></span>
+      </div>
+    </div>
+    
+    <div style="border-bottom: 2px dashed #1a1a1a; margin: 0.35rem 0;"></div>
+    
+    <div id="weather-loader" style="font-family:'IBM Plex Mono', monospace; font-size:0.75rem; color:#888;">Fetching live weather...</div>
+    <div id="weather-info" style="display:none;">
+      <div class="weather-row">
+        <div class="weather-temp" id="temp-display">--°C</div>
+        <div class="weather-condition" id="cond-display">Sunny</div>
+        <div id="weather-icon" style="font-size:1.75rem;">☀️</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Box 2: Empty Card for now -->
+  <div class="about-card" style="border: 3px dashed #1a1a1a; background: transparent; box-shadow: none; min-height: 140px; align-items: center; justify-content: center;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: #888; font-weight: 700;">
+      [ EMPTY_SLOT ]
+    </div>
+  </div>
+
+  <!-- Box 3: CV Button -->
+  <div style="min-height: 140px;">
+    <a href="#" onclick="return false;" class="cv-btn-black">
+      <svg width="14" height="14" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 2.5C3 2.22386 3.22386 2 3.5 2H11.5C11.7761 2 12 2.22386 12 2.5V12.5C12 12.7761 11.7761 13 11.5 13H3.5C3.22386 13 3 12.7761 3 12.5V2.5ZM4.5 5C4.22386 5 4 5.22386 4 5.5C4 5.77614 4.22386 6 4.5 6H10.5C10.7761 6 11 5.77614 11 5.5C11 5.22386 10.7761 5 10.5 5H4.5ZM4.5 7.5C4.22386 7.5 4 7.72386 4 8C4 8.27614 4.22386 8.5 4.5 8.5H10.5C10.7761 8.5 11 8.27614 11 8C11 7.72386 10.7761 7.5 10.5 7.5H4.5ZM4.5 10C4.22386 10 4 10.2239 4 10.5C4 10.7761 4.22386 11 4.5 11H8.5C8.77614 11 8.99998 10.7761 8.99998 10.5C8.99998 10.2239 8.77614 10 8.5 10H4.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+      <span>Download CV</span>
+    </a>
+  </div>
+
+</div>
+
+<script>
+  // Real-time weather fetch for New Delhi
+  async function fetchDelhiWeather() {
+    try {
+      const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=28.6139&longitude=77.2090&current_weather=true');
+      const data = await res.json();
+      const current = data.current_weather;
+      
+      const temp = Math.round(current.temperature);
+      const code = current.weathercode;
+      
+      let condition = "Clear";
+      let icon = "☀️";
+      
+      if (code === 0) { condition = "Clear Sky"; icon = "☀️"; }
+      else if (code >= 1 && code <= 3) { condition = "Partly Cloudy"; icon = "⛅"; }
+      else if (code >= 45 && code <= 48) { condition = "Foggy"; icon = "🌫️"; }
+      else if (code >= 51 && code <= 67) { condition = "Rainy"; icon = "🌧️"; }
+      else if (code >= 71 && code <= 77) { condition = "Snowy"; icon = "❄️"; }
+      else if (code >= 80 && code <= 82) { condition = "Rain Showers"; icon = "🌦️"; }
+      else if (code >= 95 && code <= 99) { condition = "Thunderstorm"; icon = "⛈️"; }
+      
+      document.getElementById('temp-display').innerText = temp + '°C';
+      document.getElementById('cond-display').innerText = condition;
+      document.getElementById('weather-icon').innerText = icon;
+      
+      document.getElementById('weather-loader').style.display = 'none';
+      document.getElementById('weather-info').style.display = 'block';
+    } catch (e) {
+      document.getElementById('weather-loader').innerText = 'Weather service offline';
+    }
+  }
+
+  fetchDelhiWeather();
+</script>
+
+<div class="selection-box" style="margin-top: 3.5rem; border-top: 3px solid #1a1a1a; padding-top: 2rem;">
+  <h3>Confirm this layout with header OUTSIDE the box?</h3>
+  
+  <div class="options" data-choice-trigger>
+    <div class="option" data-choice="apply-v15" onclick="toggleSelect(this)">
+      <div class="letter">A</div>
+      <div class="content">
+        <h3>Yes, build this design</h3>
+        <p>This puts the OVERVIEW label and the AI Engineer & Systems Builder title above/outside the card box, leaving only the bio text inside the box.</p>
+      </div>
+    </div>
+  </div>
+</div>
