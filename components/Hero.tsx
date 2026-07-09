@@ -309,7 +309,7 @@ export default function Hero() {
         whileTap={{ scale: 0.95 }}
         style={{
           position: 'absolute',
-          top: '22%',
+          top: '17%',
           right: '8%',
           background: '#FF6B9D',
           border: '3px solid #1a1a1a',
