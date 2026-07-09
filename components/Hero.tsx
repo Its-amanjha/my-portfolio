@@ -303,31 +303,41 @@ export default function Hero() {
       {/* Decorative sticker elements — hidden on mobile via className */}
       <motion.div
         className="hero-sticker-corner"
-        animate={{ rotate: [6, 9, 3, 6] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        animate={{ rotate: [6, 4, 8, 6] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
         whileHover={{ scale: 1.05, rotate: -2, y: -2 }}
         whileTap={{ scale: 0.95 }}
         style={{
           position: 'absolute',
-          top: '12%',
+          top: '22%',
           right: '8%',
-          background: '#95E06C',
+          background: '#FF6B9D',
           border: '3px solid #1a1a1a',
-          boxShadow: '5px 5px 0 #1a1a1a',
-          padding: '0.5rem 1rem',
+          boxShadow: '6px 6px 0 #1a1a1a',
+          padding: '0.5rem 0.8rem 0.5rem 0.6rem',
           fontFamily: "'IBM Plex Mono', monospace",
-          fontWeight: 700,
-          fontSize: '0.8rem',
+          fontWeight: 800,
+          fontSize: '0.75rem',
           textTransform: 'uppercase',
-          letterSpacing: '0.05em',
-          borderRadius: '3px',
-          transform: 'rotate(6deg)',
+          letterSpacing: '0.08em',
+          borderRadius: '2px',
           zIndex: 2,
           userSelect: 'none',
           cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
         }}
       >
-        Open to Work
+        <div style={{
+          width: '8px',
+          height: '8px',
+          borderRadius: '50%',
+          background: '#f5f0e8',
+          border: '2px solid #1a1a1a',
+          flexShrink: 0,
+        }} />
+        <span>Open to Work</span>
       </motion.div>
 
       <motion.div
