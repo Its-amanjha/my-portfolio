@@ -303,26 +303,31 @@ export default function Hero() {
       {/* Decorative sticker elements — hidden on mobile via className */}
       <motion.div
         className="hero-sticker-corner"
-        animate={{ rotate: [0, 5, 0, -5, 0] }}
+        animate={{ rotate: [6, 9, 3, 6] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        whileHover={{ scale: 1.05, rotate: -2, y: -2 }}
+        whileTap={{ scale: 0.95 }}
         style={{
           position: 'absolute',
           top: '12%',
           right: '8%',
-          background: '#FF6B9D',
+          background: '#95E06C',
           border: '3px solid #1a1a1a',
           boxShadow: '5px 5px 0 #1a1a1a',
           padding: '0.5rem 1rem',
           fontFamily: "'IBM Plex Mono', monospace",
-          fontWeight: 600,
-          fontSize: '0.85rem',
+          fontWeight: 700,
+          fontSize: '0.8rem',
+          textTransform: 'uppercase',
+          letterSpacing: '0.05em',
           borderRadius: '3px',
           transform: 'rotate(6deg)',
           zIndex: 2,
           userSelect: 'none',
+          cursor: 'pointer',
         }}
       >
-        🤖 AI Engineer
+        Open to Work
       </motion.div>
 
       <motion.div
