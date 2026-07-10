@@ -23,7 +23,7 @@ I leverage autonomous coding agents to accelerate development and rapid experime
 - **Type Safety**: TypeScript
 - **Favicon**: Custom Star38 SVG favicon
 
----
+-----
 
 ## 🌟 Key Features
 
