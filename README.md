@@ -4,7 +4,7 @@
 
 A modern, high-contrast neobrutalist developer portfolio built with Next.js, TypeScript, Framer Motion, and Tailwind CSS. Integrated with a serverless guestbook, dynamic tech writings, and custom asset layouts.
 
----
+-----
 
 ## ⚡ Core Philosophy & Focus
 
@@ -12,7 +12,7 @@ I build at the intersection of Artificial Intelligence and software engineering.
 
 I leverage autonomous coding agents to accelerate development and rapid experimentation, while retaining full ownership of architecture, design, and implementation decisions.
 
----
+-----
 
 ## 🛠️ Tech Stack & Architecture
 
